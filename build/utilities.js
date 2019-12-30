@@ -5,4 +5,10 @@ exports.approximateEqual = (first, second) => {
     let right = parseFloat((first * 0.001).toPrecision(4)) * 1;
     return left <= right;
 };
+exports.averageClose = (values, period) => {
+    return [0];
+};
+exports.averageGain = (values, period) => {
+    return [0];
+};
 //# sourceMappingURL=utilities.js.map

@@ -4,3 +4,11 @@ export const approximateEqual = (first: number, second: number): boolean => {
 
   return left <= right;
 };
+
+export const averageClose = (values: number[], period: number): number[] => {
+  return [0];
+};
+
+export const averageGain = (values: number[], period: number): number[] => {
+  return [0];
+};

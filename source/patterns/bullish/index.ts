@@ -3,13 +3,11 @@ import HammerStick from "./HammerStick";
 import Harami from "./Harami";
 import HaramiCross from "./HaramiCross";
 import InvertedHammerStick from "./InvertedHammerStick";
-import Marubozu from "./Marubozu";
-import SpinningTop from "./SpinningTop";
 import MorningDojiStar from "./MorningDojiStar";
 import MorningStar from "./MorningStar";
 import PiercingLine from "./PiercingLine";
+import SpinningTop from "./SpinningTop";
 import ThreeWhiteSoldiers from "./ThreeWhiteSoldiers";
-import { Detector } from "../../types";
 
 export default {
   Engulfing,
@@ -17,12 +15,9 @@ export default {
   Harami,
   HaramiCross,
   InvertedHammerStick,
-  Marubozu,
-  SpinningTop,
   MorningDojiStar,
   MorningStar,
   PiercingLine,
+  SpinningTop,
   ThreeWhiteSoldiers
-} as {
-  [key: string]: Detector;
 };

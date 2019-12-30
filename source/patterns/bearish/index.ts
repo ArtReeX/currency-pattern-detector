@@ -1,25 +1,23 @@
+import DownsideTasukiGap from "./DownsideTasukiGap";
 import Engulfing from "./Engulfing";
-import HammerStick from "./HammerStick";
+import EveningDojiStar from "./EveningDojiStar";
+import EveningStar from "./EveningStar";
 import Harami from "./Harami";
 import HaramiCross from "./HaramiCross";
 import InvertedHammerStick from "./InvertedHammerStick";
 import Marubozu from "./Marubozu";
 import SpinningTop from "./SpinningTop";
-import DownsideTasukiGap from "./DownsideTasukiGap";
-import EveningDojiStar from "./EveningDojiStar";
-import EveningStar from "./EveningStar";
 import ThreeBlackCrows from "./ThreeBlackCrows";
 
 export default {
+  DownsideTasukiGap,
   Engulfing,
-  HammerStick,
+  EveningDojiStar,
+  EveningStar,
   Harami,
   HaramiCross,
   InvertedHammerStick,
   Marubozu,
   SpinningTop,
-  DownsideTasukiGap,
-  EveningDojiStar,
-  EveningStar,
   ThreeBlackCrows
 };

@@ -1,13 +1,12 @@
 import { ICandle } from "../../types";
-import { approximateEqual } from "../../utilities";
 
 export default (candles: ICandle[]): boolean => {
-  const firstOpen = candles[candles.length - 1].open;
-  const firstClose = candles[candles.length - 1].close;
-  const firstLow = candles[candles.length - 1].low;
-  const secondOpen = candles[candles.length - 0].open;
-  const secondClose = candles[candles.length - 0].close;
-  const secondLow = candles[candles.length - 0].low;
+  const firstOpen = candles[candles.length - 2].open;
+  const firstClose = candles[candles.length - 2].close;
+  const firstLow = candles[candles.length - 2].low;
+  const secondOpen = candles[candles.length - 1].open;
+  const secondClose = candles[candles.length - 1].close;
+  const secondLow = candles[candles.length - 1].low;
 
   const firstMidpoint = (firstOpen + firstClose) / 2;
   const isDowntrend = secondLow < firstLow;

@@ -2,18 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const utilities_1 = require("../../utilities");
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 1].open;
-    const firstClose = candles[candles.length - 1].close;
-    const firstHigh = candles[candles.length - 1].high;
-    const secondOpen = candles[candles.length - 0].open;
-    const secondClose = candles[candles.length - 0].close;
-    const secondHigh = candles[candles.length - 0].high;
-    const secondLow = candles[candles.length - 0].low;
-    return (firstOpen < secondOpen &&
+    const firstOpen = candles[candles.length - 2].open;
+    const firstClose = candles[candles.length - 2].close;
+    const firstHigh = candles[candles.length - 2].high;
+    const secondOpen = candles[candles.length - 1].open;
+    const secondClose = candles[candles.length - 1].close;
+    const secondHigh = candles[candles.length - 1].high;
+    const secondLow = candles[candles.length - 1].low;
+    const isBearishHaramiCrossPattern = firstOpen < secondOpen &&
         firstClose > secondOpen &&
         firstClose > secondClose &&
         firstOpen < secondLow &&
-        firstHigh > secondHigh &&
-        utilities_1.approximateEqual(secondOpen, secondClose));
+        firstHigh > secondHigh;
+    const isSecondDayDoji = utilities_1.approximateEqual(secondOpen, secondClose);
+    return isBearishHaramiCrossPattern && isSecondDayDoji;
 };
 //# sourceMappingURL=HaramiCross.js.map
