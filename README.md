@@ -1,2 +1,3 @@
-# pattern-detector
+# currency-pattern-detector
+
 Finding patterns in a temporary financial row.

@@ -1,6 +1,6 @@
 {
-  "name": "pattern-detector",
-  "version": "0.0.1",
+  "name": "currency-pattern-detector",
+  "version": "0.1.0",
   "description": "Finding patterns in a temporary financial row.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArtReeX/pattern-detector.git"
+    "url": "git+https://github.com/ArtReeX/currency-pattern-detector.git"
   },
   "keywords": [
     "pattern",
@@ -22,9 +22,9 @@
   "author": "Arthur Lazarenko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ArtReeX/pattern-detector/issues"
+    "url": "https://github.com/ArtReeX/currency-pattern-detector/issues"
   },
-  "homepage": "https://github.com/ArtReeX/pattern-detector#readme",
+  "homepage": "https://github.com/ArtReeX/currency-pattern-detector#readme",
   "devDependencies": {
     "@types/jasmine": "^3.5.0",
     "@types/node": "^13.1.1",
