@@ -1,6 +1,6 @@
 {
   "name": "currency-pattern-detector",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Finding patterns in a temporary financial row.",
   "main": "index.js",
   "scripts": {
