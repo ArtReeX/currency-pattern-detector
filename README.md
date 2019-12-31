@@ -43,7 +43,7 @@ Finding patterns in a temporary financial row.
 ## Using
 
 ```typescript
-import patternDetector from "currency-pattern-detector";
+import detector from "currency-pattern-detector/build";
 
 interface ICandle {
   open: number;
@@ -58,7 +58,7 @@ const candles: ICandle[] = [
   { open: 30.2, high: 36.63, close: 36.28, low: 29.8 }
 ];
 
-console.log(patternDetector(candles));
+console.log(detector(candles));
 > 1
 ```
 
