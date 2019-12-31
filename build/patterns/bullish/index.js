@@ -13,8 +13,14 @@ const MorningStar_1 = __importDefault(require("./MorningStar"));
 const PiercingLine_1 = __importDefault(require("./PiercingLine"));
 const SpinningTop_1 = __importDefault(require("./SpinningTop"));
 const ThreeWhiteSoldiers_1 = __importDefault(require("./ThreeWhiteSoldiers"));
+const TweezerBottom_1 = __importDefault(require("./TweezerBottom"));
+const DownsideTasukiGap_1 = __importDefault(require("./DownsideTasukiGap"));
+const Marubozu_1 = __importDefault(require("./Marubozu"));
+const HammerPattern_1 = __importDefault(require("./HammerPattern"));
+const HammerPatternUnconfirmed_1 = __importDefault(require("./HammerPatternUnconfirmed"));
 exports.default = {
     Engulfing: Engulfing_1.default,
+    DownsideTasukiGap: DownsideTasukiGap_1.default,
     HammerStick: HammerStick_1.default,
     Harami: Harami_1.default,
     HaramiCross: HaramiCross_1.default,
@@ -23,6 +29,10 @@ exports.default = {
     MorningStar: MorningStar_1.default,
     PiercingLine: PiercingLine_1.default,
     SpinningTop: SpinningTop_1.default,
-    ThreeWhiteSoldiers: ThreeWhiteSoldiers_1.default
+    ThreeWhiteSoldiers: ThreeWhiteSoldiers_1.default,
+    TweezerBottom: TweezerBottom_1.default,
+    Marubozu: Marubozu_1.default,
+    HammerPattern: HammerPattern_1.default,
+    HammerPatternUnconfirmed: HammerPatternUnconfirmed_1.default
 };
 //# sourceMappingURL=index.js.map

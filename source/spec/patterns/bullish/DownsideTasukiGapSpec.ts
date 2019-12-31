@@ -1,5 +1,5 @@
 import "jasmine";
-import DownsideTasukiGap from "../../../patterns/bearish/DownsideTasukiGap";
+import DownsideTasukiGap from "../../../patterns/bullish/DownsideTasukiGap";
 import { ICandle } from "../../../types";
 
 describe("DownsideTasukiGap (bearish)", () => {

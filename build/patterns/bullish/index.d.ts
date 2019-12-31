@@ -1,5 +1,6 @@
 declare const _default: {
     Engulfing: (candles: import("../../types").ICandle[]) => boolean;
+    DownsideTasukiGap: (candles: import("../../types").ICandle[]) => boolean;
     HammerStick: (candles: import("../../types").ICandle[]) => boolean;
     Harami: (candles: import("../../types").ICandle[]) => boolean;
     HaramiCross: (candles: import("../../types").ICandle[]) => boolean;
@@ -9,6 +10,10 @@ declare const _default: {
     PiercingLine: (candles: import("../../types").ICandle[]) => boolean;
     SpinningTop: (candles: import("../../types").ICandle[]) => boolean;
     ThreeWhiteSoldiers: (candles: import("../../types").ICandle[]) => boolean;
+    TweezerBottom: (candles: import("../../types").ICandle[]) => boolean;
+    Marubozu: (candles: import("../../types").ICandle[]) => boolean;
+    HammerPattern: (candles: import("../../types").ICandle[]) => boolean;
+    HammerPatternUnconfirmed: (candles: import("../../types").ICandle[]) => boolean;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map

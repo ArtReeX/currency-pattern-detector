@@ -5,10 +5,34 @@ exports.approximateEqual = (first, second) => {
     let right = parseFloat((first * 0.001).toPrecision(4)) * 1;
     return left <= right;
 };
-exports.averageClose = (values, period) => {
-    return [0];
+exports.averageGain = (values, period, presiction = 64) => {
+    const averages = [];
+    for (let countPeriod = period; countPeriod < values.length; countPeriod++) {
+        const sequence = values.slice(countPeriod - period, countPeriod);
+        let gainSum = 0;
+        for (let countSeq = 1; countSeq < sequence.length; countSeq++) {
+            const gain = sequence[countSeq] - sequence[countSeq - 1];
+            if (gain > 0) {
+                gainSum += gain;
+            }
+        }
+        averages.push(gainSum / period);
+    }
+    return averages.map(average => Number(average.toPrecision(presiction)));
 };
-exports.averageGain = (values, period) => {
-    return [0];
+exports.averageLoss = (values, period, presiction = 64) => {
+    const averages = [];
+    for (let countPeriod = period; countPeriod < values.length; countPeriod++) {
+        const sequence = values.slice(countPeriod - period, countPeriod);
+        let gainSum = 0;
+        for (let countSeq = 1; countSeq < sequence.length; countSeq++) {
+            const gain = sequence[countSeq - 1] - sequence[countSeq];
+            if (gain > 0) {
+                gainSum += gain;
+            }
+        }
+        averages.push(gainSum / period);
+    }
+    return averages.map(average => Number(average.toPrecision(presiction)));
 };
 //# sourceMappingURL=utilities.js.map

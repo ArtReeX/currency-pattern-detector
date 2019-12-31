@@ -8,9 +8,15 @@ import MorningStar from "./MorningStar";
 import PiercingLine from "./PiercingLine";
 import SpinningTop from "./SpinningTop";
 import ThreeWhiteSoldiers from "./ThreeWhiteSoldiers";
+import TweezerBottom from "./TweezerBottom";
+import DownsideTasukiGap from "./DownsideTasukiGap";
+import Marubozu from "./Marubozu";
+import HammerPattern from "./HammerPattern";
+import HammerPatternUnconfirmed from "./HammerPatternUnconfirmed";
 
 export default {
   Engulfing,
+  DownsideTasukiGap,
   HammerStick,
   Harami,
   HaramiCross,
@@ -19,5 +25,9 @@ export default {
   MorningStar,
   PiercingLine,
   SpinningTop,
-  ThreeWhiteSoldiers
+  ThreeWhiteSoldiers,
+  TweezerBottom,
+  Marubozu,
+  HammerPattern,
+  HammerPatternUnconfirmed
 };
