@@ -1,6 +1,5 @@
 import patterns from "./patterns";
-import { ICandle, IResult, Trend } from "./types";
-import _ from "lodash";
+import { ICandle, IResult } from "./types";
 
 export default (candles: ICandle[]): IResult => {
   const result: IResult = {

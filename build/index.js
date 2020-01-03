@@ -16,7 +16,7 @@ exports.default = (candles) => {
         }
     }
     for (const name in patterns_1.default.bearish) {
-        const exist = patterns_1.default.bullish[name](candles);
+        const exist = patterns_1.default.bearish[name](candles);
         if (exist) {
             result.bearish.push(name);
         }
