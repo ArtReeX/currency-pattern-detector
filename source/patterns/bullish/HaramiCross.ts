@@ -1,5 +1,5 @@
 import { ICandle } from "../../types";
-import { approximateEqual } from "../../utilities";
+import { isApproximateEqual } from "../../utilities";
 
 export default (candles: ICandle[]): boolean => {
   const firstOpen = candles[candles.length - 2].open;
@@ -16,7 +16,7 @@ export default (candles: ICandle[]): boolean => {
     firstClose < secondClose &&
     firstOpen > secondLow &&
     firstHigh > secondHigh;
-  const isSecondDayDoji = approximateEqual(
+  const isSecondDayDoji = isApproximateEqual(
     secondOpen - secondClose,
     secondHigh - secondLow
   );

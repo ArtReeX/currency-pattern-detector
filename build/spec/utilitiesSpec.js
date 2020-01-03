@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("jasmine");
 const utilities_1 = require("../utilities");
 describe("utilities", () => {
-    it("approximateEqual", () => {
-        expect(utilities_1.approximateEqual(1.001 - 1.0, 2 - 1)).toBeTrue();
-        expect(utilities_1.approximateEqual(1.3 - 1.0, 2 - 1)).toBeFalse();
+    it("isApproximateEqual", () => {
+        expect(utilities_1.isApproximateEqual(1.001 - 1.0, 2 - 1)).toBeTrue();
+        expect(utilities_1.isApproximateEqual(1.3 - 1.0, 2 - 1)).toBeFalse();
     });
     it("averageGain", () => {
         const values = [
@@ -71,11 +71,11 @@ describe("utilities", () => {
         const result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         expect(utilities_1.averageLoss(values, 6, 2)).toEqual(result);
     });
-    it("percentageOfNumber", () => {
-        expect(utilities_1.percentageOfNumber(5, 100)).toEqual(5);
-        expect(utilities_1.percentageOfNumber(100, 100)).toEqual(100);
-        expect(utilities_1.percentageOfNumber(1, 100)).toEqual(1);
-        expect(utilities_1.percentageOfNumber(50, 100)).toEqual(50);
+    it("percentageOf", () => {
+        expect(utilities_1.percentageOf(5, 100)).toEqual(5);
+        expect(utilities_1.percentageOf(100, 100)).toEqual(100);
+        expect(utilities_1.percentageOf(1, 100)).toEqual(1);
+        expect(utilities_1.percentageOf(50, 100)).toEqual(50);
     });
 });
 //# sourceMappingURL=utilitiesSpec.js.map

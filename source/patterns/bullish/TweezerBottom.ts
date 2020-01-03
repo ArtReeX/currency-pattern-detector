@@ -1,5 +1,5 @@
 import { ICandle } from "../../types";
-import { averageGain, averageLoss, approximateEqual } from "../../utilities";
+import { averageGain, averageLoss, isApproximateEqual } from "../../utilities";
 import _ from "lodash";
 
 export default (candles: ICandle[]): boolean => {
@@ -10,7 +10,7 @@ export default (candles: ICandle[]): boolean => {
 
   return (
     downwardTrend(candles) &&
-    approximateEqual(
+    isApproximateEqual(
       secondLow - thirdLow,
       Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)
     )

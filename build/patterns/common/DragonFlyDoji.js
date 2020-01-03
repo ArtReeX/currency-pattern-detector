@@ -6,10 +6,10 @@ exports.default = (candles) => {
     const close = candles[candles.length - 1].close;
     const high = candles[candles.length - 1].high;
     const low = candles[candles.length - 1].low;
-    const isOpenEqualsClose = utilities_1.approximateEqual(open - close, high - low);
-    const isHighEqualsOpen = utilities_1.approximateEqual(open - high, high - low);
-    const isEqualSegments = utilities_1.approximateEqual(utilities_1.percentageOfNumber(high - open, high - low) -
-        utilities_1.percentageOfNumber(close - low, high - low), 100);
+    const isOpenEqualsClose = utilities_1.isApproximateEqual(open - close, high - low);
+    const isHighEqualsOpen = utilities_1.isApproximateEqual(open - high, high - low);
+    const isEqualSegments = utilities_1.isApproximateEqual(utilities_1.percentageOf(high - open, high - low) -
+        utilities_1.percentageOf(close - low, high - low), 100);
     return isOpenEqualsClose && isHighEqualsOpen && !isEqualSegments;
 };
 //# sourceMappingURL=DragonFlyDoji.js.map

@@ -1,5 +1,5 @@
 import { ICandle } from "../../types";
-import { approximateEqual, percentageOfNumber } from "../../utilities";
+import { isApproximateEqual, percentageOf } from "../../utilities";
 
 export default (candles: ICandle[]): boolean => {
   const open = candles[candles.length - 1].open;
@@ -7,10 +7,10 @@ export default (candles: ICandle[]): boolean => {
   const high = candles[candles.length - 1].high;
   const low = candles[candles.length - 1].low;
 
-  const isOpenEqualsClose = approximateEqual(open - close, high - low);
-  const isEqualSegments = approximateEqual(
-    percentageOfNumber(high - open, high - low) -
-      percentageOfNumber(close - low, high - low),
+  const isOpenEqualsClose = isApproximateEqual(open - close, high - low);
+  const isEqualSegments = isApproximateEqual(
+    percentageOf(high - open, high - low) -
+      percentageOf(close - low, high - low),
     100
   );
 

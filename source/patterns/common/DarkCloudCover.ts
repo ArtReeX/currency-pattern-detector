@@ -1,5 +1,5 @@
 import { ICandle } from "../../types";
-import { approximateEqual } from "../../utilities";
+import { isApproximateEqual } from "../../utilities";
 
 export default (candles: ICandle[]): boolean => {
   const firstOpen = candles[candles.length - 2].open;

@@ -1,5 +1,5 @@
 import { ICandle } from "../../types";
-import { approximateEqual } from "../../utilities";
+import { isApproximateEqual } from "../../utilities";
 
 export default (candles: ICandle[]): boolean => {
   const open = candles[candles.length - 1].open;
@@ -9,7 +9,7 @@ export default (candles: ICandle[]): boolean => {
 
   return (
     open > close &&
-    approximateEqual(open - high, high - low) &&
+    isApproximateEqual(open - high, high - low) &&
     open - close <= 2 * (close - low)
   );
 };

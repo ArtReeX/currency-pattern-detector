@@ -1,16 +1,16 @@
 import "jasmine";
 
 import {
-  approximateEqual,
+  isApproximateEqual,
   averageGain,
   averageLoss,
-  percentageOfNumber
+  percentageOf
 } from "../utilities";
 
 describe("utilities", () => {
-  it("approximateEqual", () => {
-    expect(approximateEqual(1.001 - 1.0, 2 - 1)).toBeTrue();
-    expect(approximateEqual(1.3 - 1.0, 2 - 1)).toBeFalse();
+  it("isApproximateEqual", () => {
+    expect(isApproximateEqual(1.001 - 1.0, 2 - 1)).toBeTrue();
+    expect(isApproximateEqual(1.3 - 1.0, 2 - 1)).toBeFalse();
   });
 
   it("averageGain", () => {
@@ -82,10 +82,10 @@ describe("utilities", () => {
     expect(averageLoss(values, 6, 2)).toEqual(result);
   });
 
-  it("percentageOfNumber", () => {
-    expect(percentageOfNumber(5, 100)).toEqual(5);
-    expect(percentageOfNumber(100, 100)).toEqual(100);
-    expect(percentageOfNumber(1, 100)).toEqual(1);
-    expect(percentageOfNumber(50, 100)).toEqual(50);
+  it("percentageOf", () => {
+    expect(percentageOf(5, 100)).toEqual(5);
+    expect(percentageOf(100, 100)).toEqual(100);
+    expect(percentageOf(1, 100)).toEqual(1);
+    expect(percentageOf(50, 100)).toEqual(50);
   });
 });

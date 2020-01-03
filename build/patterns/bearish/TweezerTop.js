@@ -11,7 +11,7 @@ exports.default = (candles) => {
     const thirdHigh = candles[candles.length - 1].high;
     const thirdLow = candles[candles.length - 1].low;
     return (upwardTrend(candles) &&
-        utilities_1.approximateEqual(secondHigh - thirdHigh, Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)));
+        utilities_1.isApproximateEqual(secondHigh - thirdHigh, Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)));
 };
 const upwardTrend = (candles) => {
     const closes = candles.map(c => c.close);
