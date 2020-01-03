@@ -58,10 +58,16 @@ const candles: ICandle[] = [
   { open: 30.2, high: 36.63, close: 36.28, low: 29.8 }
 ];
 
-console.log(detector(candles));
-> 1
+detector(candles);
 ```
 
-**Where: 1 - bullish, 0 - neutral, -1 - bearish.**
+```typescript
+interface IResult {
+  bullish: string[];
+  bearish: string[];
+}
+```
+
+**The result contains two arrays listing the patterns found.**
 
 _You can give a complete history of candles, and the detector itself will take as much as it needs (from the last)._

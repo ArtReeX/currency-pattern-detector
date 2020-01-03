@@ -4,16 +4,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const patterns_1 = __importDefault(require("./patterns"));
-const types_1 = require("./types");
 exports.default = (candles) => {
-    const bullish = Object.values(patterns_1.default.bullish).reduce((prev, detector) => (prev += Number(detector(candles))), 0);
-    const bearish = Object.values(patterns_1.default.bearish).reduce((prev, detector) => (prev += Number(detector(candles))), 0);
-    if (bullish > bearish) {
-        return types_1.Trend.BULLISH;
+    const result = {
+        bullish: [],
+        bearish: []
+    };
+    for (const name in patterns_1.default.bullish) {
+        const exist = patterns_1.default.bullish[name](candles);
+        if (exist) {
+            result.bullish.push(name);
+        }
     }
-    if (bullish < bearish) {
-        return types_1.Trend.BEARISH;
+    for (const name in patterns_1.default.bearish) {
+        const exist = patterns_1.default.bullish[name](candles);
+        if (exist) {
+            result.bearish.push(name);
+        }
     }
-    return types_1.Trend.NEUTRAL;
+    return result;
 };
 //# sourceMappingURL=index.js.map

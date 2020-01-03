@@ -1,3 +1,7 @@
+export interface IResult {
+    bullish: string[];
+    bearish: string[];
+}
 export declare enum Trend {
     BULLISH = 1,
     NEUTRAL = 0,

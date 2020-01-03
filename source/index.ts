@@ -1,23 +1,28 @@
 import patterns from "./patterns";
-import { ICandle, Trend } from "./types";
+import { ICandle, IResult, Trend } from "./types";
+import _ from "lodash";
 
-export default (candles: ICandle[]): Trend => {
-  const bullish = Object.values(patterns.bullish).reduce(
-    (prev, detector) => (prev += Number(detector(candles))),
-    0
-  );
+export default (candles: ICandle[]): IResult => {
+  const result: IResult = {
+    bullish: [],
+    bearish: []
+  };
 
-  const bearish = Object.values(patterns.bearish).reduce(
-    (prev, detector) => (prev += Number(detector(candles))),
-    0
-  );
+  for (const name in patterns.bullish) {
+    const exist = patterns.bullish[name](candles);
 
-  if (bullish > bearish) {
-    return Trend.BULLISH;
-  }
-  if (bullish < bearish) {
-    return Trend.BEARISH;
+    if (exist) {
+      result.bullish.push(name);
+    }
   }
 
-  return Trend.NEUTRAL;
+  for (const name in patterns.bearish) {
+    const exist = patterns.bullish[name](candles);
+
+    if (exist) {
+      result.bearish.push(name);
+    }
+  }
+
+  return result;
 };
