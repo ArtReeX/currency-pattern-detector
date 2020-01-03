@@ -17,7 +17,7 @@ export default (candles: ICandle[]): IResult => {
   }
 
   for (const name in patterns.bearish) {
-    const exist = patterns.bullish[name](candles);
+    const exist = patterns.bearish[name](candles);
 
     if (exist) {
       result.bearish.push(name);
