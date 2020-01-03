@@ -1,26 +1,20 @@
 import { ICandle } from "../../types";
 
 export default (candles: ICandle[]): boolean => {
-  const firstOpen = candles[candles.length - 3].open;
-  const firstClose = candles[candles.length - 3].close;
-  const firstLow = candles[candles.length - 3].low;
-  const secondOpen = candles[candles.length - 2].open;
-  const secondClose = candles[candles.length - 2].close;
-  const secondLow = candles[candles.length - 2].low;
-  const thirdOpen = candles[candles.length - 1].open;
-  const thirdClose = candles[candles.length - 1].close;
-  const thirdLow = candles[candles.length - 1].low;
+  const first = candles[candles.length - 3];
+  const second = candles[candles.length - 2];
+  const third = candles[candles.length - 1];
 
-  const isDownTrend = firstLow > secondLow && secondLow > thirdLow;
+  const isDownTrend = first.low > second.low && second.low > third.low;
   const isAllBearish =
-    firstOpen > firstClose &&
-    secondOpen > secondClose &&
-    thirdOpen > thirdClose;
+    first.open > first.close &&
+    second.open > second.close &&
+    third.open > third.close;
   const doesOpenWithinPreviousBody =
-    firstOpen > secondOpen &&
-    secondOpen > firstClose &&
-    secondOpen > thirdOpen &&
-    thirdOpen > secondClose;
+    first.open > second.open &&
+    second.open > first.close &&
+    second.open > third.open &&
+    third.open > second.close;
 
   return isDownTrend && isAllBearish && doesOpenWithinPreviousBody;
 };

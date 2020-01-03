@@ -1,26 +1,18 @@
 import { ICandle } from "../../types";
 import { isApproximateEqual } from "../../utilities";
+import Doji from "../common/Doji";
 
 export default (candles: ICandle[]): boolean => {
-  const firstOpen = candles[candles.length - 2].open;
-  const firstClose = candles[candles.length - 2].close;
-  const firstHigh = candles[candles.length - 2].high;
-  const secondOpen = candles[candles.length - 1].open;
-  const secondClose = candles[candles.length - 1].close;
-  const secondHigh = candles[candles.length - 1].high;
-  const secondLow = candles[candles.length - 1].low;
+  const first = candles[candles.length - 2];
+  const second = candles[candles.length - 1];
 
   const isBearishHaramiCrossPattern =
-    firstOpen < secondOpen &&
-    firstClose > secondOpen &&
-    firstClose > secondClose &&
-    firstOpen < secondLow &&
-    firstHigh > secondHigh;
-
-  const isSecondDayDoji = isApproximateEqual(
-    secondOpen - secondClose,
-    secondHigh - secondLow
-  );
+    first.open < second.open &&
+    first.close > second.open &&
+    first.close > second.close &&
+    first.open < second.low &&
+    first.high > second.high;
+  const isSecondDayDoji = Doji([second]);
 
   return isBearishHaramiCrossPattern && isSecondDayDoji;
 };

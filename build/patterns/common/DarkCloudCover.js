@@ -1,17 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 2].open;
-    const firstClose = candles[candles.length - 2].close;
-    const firstHigh = candles[candles.length - 2].high;
-    const secondOpen = candles[candles.length - 1].open;
-    const secondClose = candles[candles.length - 1].close;
-    const firstdayMidpoint = (firstClose + firstOpen) / 2;
-    const isFirstBullish = firstClose > firstOpen;
-    const isSecondBearish = secondClose < secondOpen;
-    const isDarkCloudPattern = secondOpen > firstHigh &&
-        secondClose < firstdayMidpoint &&
-        secondClose > firstOpen;
+    const first = candles[candles.length - 2];
+    const second = candles[candles.length - 1];
+    const firstdayMidpoint = (first.close + first.open) / 2;
+    const isFirstBullish = first.close > first.open;
+    const isSecondBearish = second.close < second.open;
+    const isDarkCloudPattern = second.open > first.high &&
+        second.close < firstdayMidpoint &&
+        second.close > first.open;
     return isFirstBullish && isSecondBearish && isDarkCloudPattern;
 };
 //# sourceMappingURL=DarkCloudCover.js.map

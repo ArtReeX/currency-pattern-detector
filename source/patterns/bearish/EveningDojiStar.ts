@@ -2,33 +2,27 @@ import { ICandle } from "../../types";
 import Doji from "../common/Doji";
 
 export default (candles: ICandle[]): boolean => {
-  const firstOpen = candles[candles.length - 3].open;
-  const firstClose = candles[candles.length - 3].close;
-  const firstHigh = candles[candles.length - 3].high;
-  const secondOpen = candles[candles.length - 2].open;
-  const secondClose = candles[candles.length - 2].close;
-  const secondHigh = candles[candles.length - 2].high;
-  const secondLow = candles[candles.length - 2].low;
-  const thirdOpen = candles[candles.length - 1].open;
-  const thirdClose = candles[candles.length - 1].close;
+  const first = candles[candles.length - 3];
+  const second = candles[candles.length - 2];
+  const third = candles[candles.length - 1];
 
-  const firstMidpoint = (firstOpen + firstClose) / 2;
-  const isFirstBullish = firstClose > firstOpen;
+  const firstMidpoint = (first.open + first.close) / 2;
+  const isFirstBullish = first.close > first.open;
   const dojiExists = Doji([
     {
-      open: secondOpen,
-      close: secondClose,
-      high: secondHigh,
-      low: secondLow
+      open: second.open,
+      close: second.close,
+      high: second.high,
+      low: second.low
     }
   ]);
-  const isThirdBearish = thirdOpen > thirdClose;
+  const isThirdBearish = third.open > third.close;
   const gapExists =
-    secondHigh > firstHigh &&
-    secondLow > firstHigh &&
-    thirdOpen < secondLow &&
-    secondClose > thirdOpen;
-  const doesCloseBelowFirstMidpoint = thirdClose < firstMidpoint;
+    second.high > first.high &&
+    second.low > first.high &&
+    third.open < second.low &&
+    second.close > third.open;
+  const doesCloseBelowFirstMidpoint = third.close < firstMidpoint;
 
   return (
     isFirstBullish &&

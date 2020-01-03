@@ -1,20 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const utilities_1 = require("../../utilities");
+const Doji_1 = __importDefault(require("../common/Doji"));
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 2].open;
-    const firstClose = candles[candles.length - 2].close;
-    const firstHigh = candles[candles.length - 2].high;
-    const secondOpen = candles[candles.length - 1].open;
-    const secondClose = candles[candles.length - 1].close;
-    const secondHigh = candles[candles.length - 1].high;
-    const secondLow = candles[candles.length - 1].low;
-    const isBearishHaramiCrossPattern = firstOpen < secondOpen &&
-        firstClose > secondOpen &&
-        firstClose > secondClose &&
-        firstOpen < secondLow &&
-        firstHigh > secondHigh;
-    const isSecondDayDoji = utilities_1.isApproximateEqual(secondOpen - secondClose, secondHigh - secondLow);
+    const first = candles[candles.length - 2];
+    const second = candles[candles.length - 1];
+    const isBearishHaramiCrossPattern = first.open < second.open &&
+        first.close > second.open &&
+        first.close > second.close &&
+        first.open < second.low &&
+        first.high > second.high;
+    const isSecondDayDoji = Doji_1.default([second]);
     return isBearishHaramiCrossPattern && isSecondDayDoji;
 };
 //# sourceMappingURL=HaramiCross.js.map

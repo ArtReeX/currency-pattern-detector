@@ -1,15 +1,13 @@
 import { ICandle } from "../../types";
 
 export default (candles: ICandle[]): boolean => {
-  const firstOpen = candles[candles.length - 2].open;
-  const firstClose = candles[candles.length - 2].close;
-  const secondOpen = candles[candles.length - 1].open;
-  const secondClose = candles[candles.length - 1].close;
+  const first = candles[candles.length - 2];
+  const second = candles[candles.length - 1];
 
   return (
-    firstClose > firstOpen &&
-    firstOpen < secondOpen &&
-    firstClose < secondOpen &&
-    firstOpen > secondClose
+    first.close > first.open &&
+    first.open < second.open &&
+    first.close < second.open &&
+    first.open > second.close
   );
 };

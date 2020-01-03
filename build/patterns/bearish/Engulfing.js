@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 2].open;
-    const firstClose = candles[candles.length - 2].close;
-    const secondOpen = candles[candles.length - 1].open;
-    const secondClose = candles[candles.length - 1].close;
-    return (firstClose > firstOpen &&
-        firstOpen < secondOpen &&
-        firstClose < secondOpen &&
-        firstOpen > secondClose);
+    const first = candles[candles.length - 2];
+    const second = candles[candles.length - 1];
+    return (first.close > first.open &&
+        first.open < second.open &&
+        first.close < second.open &&
+        first.open > second.close);
 };
 //# sourceMappingURL=Engulfing.js.map

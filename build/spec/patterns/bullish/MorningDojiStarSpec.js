@@ -9,7 +9,7 @@ describe("MorningDojiStar (bullish)", () => {
     it("default", () => {
         const input = [
             { open: 22.2, high: 22.5, close: 20.8, low: 20.65 },
-            { open: 20.3, high: 20.45, close: 20.3, low: 20.15 },
+            { open: 20.29, high: 20.46, close: 20.29, low: 20.12 },
             { open: 20.7, high: 21.82, close: 21.58, low: 20.4 }
         ];
         expect(MorningDojiStar_1.default(input)).toBeTrue();

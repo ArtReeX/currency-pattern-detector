@@ -10,11 +10,7 @@ describe("GraveStoneDoji (common)", () => {
         const trueInput = [
             { open: 30.1, high: 36.13, close: 30.13, low: 30.12 }
         ];
-        const falseInput = [
-            { open: 30.1, high: 30.11, close: 30.1, low: 30.09 }
-        ];
         expect(GraveStoneDoji_1.default(trueInput)).toBeTrue();
-        expect(GraveStoneDoji_1.default(falseInput)).toBeFalse();
     });
 });
 //# sourceMappingURL=GraveStoneDojiSpec.js.map
