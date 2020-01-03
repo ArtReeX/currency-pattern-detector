@@ -1,5 +1,6 @@
-export const approximateEqual = (first: number, second: number): boolean =>
-  Math.abs(differenceInPercent(first, second)) <= 10;
+export const approximateEqual = (first: number, second: number): boolean => {
+  return percentageOfNumber(Math.abs(first), Math.abs(second)) < 10;
+};
 
 export const averageGain = (
   values: number[],
@@ -49,5 +50,5 @@ export const averageLoss = (
   return averages.map(average => Number(average.toPrecision(presiction)));
 };
 
-export const differenceInPercent = (first: number, second: number): number =>
-  ((first - second) / Math.min(first, second)) * 100;
+export const percentageOfNumber = (first: number, second: number) =>
+  (first / second) * 100;

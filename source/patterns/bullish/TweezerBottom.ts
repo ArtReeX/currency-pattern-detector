@@ -3,10 +3,18 @@ import { averageGain, averageLoss, approximateEqual } from "../../utilities";
 import _ from "lodash";
 
 export default (candles: ICandle[]): boolean => {
+  const secondHigh = candles[candles.length - 2].high;
   const secondLow = candles[candles.length - 2].low;
+  const thirdHigh = candles[candles.length - 1].high;
   const thirdLow = candles[candles.length - 1].low;
 
-  return downwardTrend(candles) && approximateEqual(secondLow, thirdLow);
+  return (
+    downwardTrend(candles) &&
+    approximateEqual(
+      secondLow - thirdLow,
+      Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)
+    )
+  );
 };
 
 const downwardTrend = (candles: ICandle[]): boolean => {

@@ -9,7 +9,7 @@ export default (candles: ICandle[]): boolean => {
 
   return (
     close > open &&
-    approximateEqual(open, low) &&
+    approximateEqual(open - low, high - low) &&
     close - open <= 2 * (high - close)
   );
 };

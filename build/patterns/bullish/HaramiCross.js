@@ -14,7 +14,7 @@ exports.default = (candles) => {
         firstClose < secondClose &&
         firstOpen > secondLow &&
         firstHigh > secondHigh;
-    const isSecondDayDoji = utilities_1.approximateEqual(secondOpen, secondClose);
+    const isSecondDayDoji = utilities_1.approximateEqual(secondOpen - secondClose, secondHigh - secondLow);
     return isBullishHaramiCrossPattern && isSecondDayDoji;
 };
 //# sourceMappingURL=HaramiCross.js.map

@@ -6,9 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const utilities_1 = require("../../utilities");
 const lodash_1 = __importDefault(require("lodash"));
 exports.default = (candles) => {
+    const secondHigh = candles[candles.length - 2].high;
     const secondLow = candles[candles.length - 2].low;
+    const thirdHigh = candles[candles.length - 1].high;
     const thirdLow = candles[candles.length - 1].low;
-    return downwardTrend(candles) && utilities_1.approximateEqual(secondLow, thirdLow);
+    return (downwardTrend(candles) &&
+        utilities_1.approximateEqual(secondLow - thirdLow, Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)));
 };
 const downwardTrend = (candles) => {
     const closes = candles.map(c => c.close);

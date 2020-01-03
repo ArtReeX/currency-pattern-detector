@@ -17,7 +17,10 @@ export default (candles: ICandle[]): boolean => {
     firstOpen < secondLow &&
     firstHigh > secondHigh;
 
-  const isSecondDayDoji = approximateEqual(secondOpen, secondClose);
+  const isSecondDayDoji = approximateEqual(
+    secondOpen - secondClose,
+    secondHigh - secondLow
+  );
 
   return isBearishHaramiCrossPattern && isSecondDayDoji;
 };

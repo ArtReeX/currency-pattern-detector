@@ -6,8 +6,8 @@ exports.default = (candles) => {
     const close = candles[candles.length - 1].close;
     const high = candles[candles.length - 1].high;
     const low = candles[candles.length - 1].low;
-    return (utilities_1.approximateEqual(open, high) &&
-        utilities_1.approximateEqual(low, close) &&
+    return (utilities_1.approximateEqual(open - high, high - low) &&
+        utilities_1.approximateEqual(low - close, high - low) &&
         open > close &&
         open > low);
 };

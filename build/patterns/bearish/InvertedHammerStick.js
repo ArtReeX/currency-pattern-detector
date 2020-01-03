@@ -7,7 +7,7 @@ exports.default = (candles) => {
     const high = candles[candles.length - 1].high;
     const low = candles[candles.length - 1].low;
     return (open > close &&
-        utilities_1.approximateEqual(close, low) &&
+        utilities_1.approximateEqual(close - low, high - low) &&
         open - close <= 2 * (high - open));
 };
 //# sourceMappingURL=InvertedHammerStick.js.map
