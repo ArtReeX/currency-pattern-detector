@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.approximateEqual = (first, second) => {
-    return exports.percentageOfNumber(Math.abs(first), Math.abs(second)) < 10;
+    return exports.percentageOfNumber(Math.abs(first), Math.abs(second)) < 5;
 };
 exports.averageGain = (values, period, presiction = 64) => {
     const averages = [];
@@ -33,5 +33,5 @@ exports.averageLoss = (values, period, presiction = 64) => {
     }
     return averages.map(average => Number(average.toPrecision(presiction)));
 };
-exports.percentageOfNumber = (first, second) => (first / second) * 100;
+exports.percentageOfNumber = (first, second) => (Math.abs(first) / Math.abs(second)) * 100;
 //# sourceMappingURL=utilities.js.map

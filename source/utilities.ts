@@ -1,5 +1,5 @@
 export const approximateEqual = (first: number, second: number): boolean => {
-  return percentageOfNumber(Math.abs(first), Math.abs(second)) < 10;
+  return percentageOfNumber(Math.abs(first), Math.abs(second)) < 5;
 };
 
 export const averageGain = (
@@ -51,4 +51,4 @@ export const averageLoss = (
 };
 
 export const percentageOfNumber = (first: number, second: number) =>
-  (first / second) * 100;
+  (Math.abs(first) / Math.abs(second)) * 100;
