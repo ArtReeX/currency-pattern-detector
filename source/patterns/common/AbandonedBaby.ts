@@ -14,8 +14,8 @@ export default (candles: ICandle[]): boolean => {
   const thirdHigh = candles[candles.length - 1].high;
   const thirdLow = candles[candles.length - 1].low;
 
-  let isFirstBearish = firstClose < firstOpen;
-  let dojiExists = Doji([
+  const isFirstBearish = firstClose < firstOpen;
+  const dojiExists = Doji([
     {
       open: secondOpen,
       close: secondClose,
@@ -23,8 +23,9 @@ export default (candles: ICandle[]): boolean => {
       low: secondLow
     }
   ]);
-  let gapExists =
+  const gapExists =
     secondHigh < firstLow && thirdLow > secondHigh && thirdClose > thirdOpen;
-  let isThirdBullish = thirdHigh < firstOpen;
+  const isThirdBullish = thirdHigh < firstOpen;
+
   return isFirstBearish && dojiExists && gapExists && isThirdBullish;
 };

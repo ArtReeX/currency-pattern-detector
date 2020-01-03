@@ -1,9 +1,5 @@
-export const approximateEqual = (first: number, second: number): boolean => {
-  let left = parseFloat(Math.abs(first - second).toPrecision(4)) * 1;
-  let right = parseFloat((first * 0.001).toPrecision(4)) * 1;
-
-  return left <= right;
-};
+export const approximateEqual = (first: number, second: number): boolean =>
+  Math.abs(differenceInPercent(first, second)) <= 5;
 
 export const averageGain = (
   values: number[],
@@ -52,3 +48,6 @@ export const averageLoss = (
 
   return averages.map(average => Number(average.toPrecision(presiction)));
 };
+
+export const differenceInPercent = (first: number, second: number): number =>
+  ((first - second) / Math.min(first, second)) * 100;

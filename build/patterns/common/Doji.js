@@ -7,8 +7,7 @@ exports.default = (candles) => {
     const high = candles[candles.length - 1].high;
     const low = candles[candles.length - 1].low;
     const isOpenEqualsClose = utilities_1.approximateEqual(open, close);
-    const isHighEqualsOpen = isOpenEqualsClose && utilities_1.approximateEqual(open, high);
-    const isLowEqualsClose = isOpenEqualsClose && utilities_1.approximateEqual(close, low);
-    return isOpenEqualsClose && isHighEqualsOpen === isLowEqualsClose;
+    const isEqualSegments = utilities_1.approximateEqual(high - open, close - low);
+    return isOpenEqualsClose && isEqualSegments;
 };
 //# sourceMappingURL=Doji.js.map

@@ -16,8 +16,8 @@ exports.default = (candles) => {
     const thirdClose = candles[candles.length - 1].close;
     const thirdHigh = candles[candles.length - 1].high;
     const thirdLow = candles[candles.length - 1].low;
-    let isFirstBearish = firstClose < firstOpen;
-    let dojiExists = Doji_1.default([
+    const isFirstBearish = firstClose < firstOpen;
+    const dojiExists = Doji_1.default([
         {
             open: secondOpen,
             close: secondClose,
@@ -25,8 +25,8 @@ exports.default = (candles) => {
             low: secondLow
         }
     ]);
-    let gapExists = secondHigh < firstLow && thirdLow > secondHigh && thirdClose > thirdOpen;
-    let isThirdBullish = thirdHigh < firstOpen;
+    const gapExists = secondHigh < firstLow && thirdLow > secondHigh && thirdClose > thirdOpen;
+    const isThirdBullish = thirdHigh < firstOpen;
     return isFirstBearish && dojiExists && gapExists && isThirdBullish;
 };
 //# sourceMappingURL=AbandonedBaby.js.map

@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.approximateEqual = (first, second) => {
-    let left = parseFloat(Math.abs(first - second).toPrecision(4)) * 1;
-    let right = parseFloat((first * 0.001).toPrecision(4)) * 1;
-    return left <= right;
-};
+exports.approximateEqual = (first, second) => Math.abs(exports.differenceInPercent(first, second)) <= 5;
 exports.averageGain = (values, period, presiction = 64) => {
     const averages = [];
     for (let countPeriod = period; countPeriod < values.length; countPeriod++) {
@@ -35,4 +31,5 @@ exports.averageLoss = (values, period, presiction = 64) => {
     }
     return averages.map(average => Number(average.toPrecision(presiction)));
 };
+exports.differenceInPercent = (first, second) => ((first - second) / Math.min(first, second)) * 100;
 //# sourceMappingURL=utilities.js.map

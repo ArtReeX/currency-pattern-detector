@@ -1,6 +1,11 @@
 import "jasmine";
 
-import { approximateEqual, averageGain, averageLoss } from "../utilities";
+import {
+  approximateEqual,
+  averageGain,
+  averageLoss,
+  differenceInPercent
+} from "../utilities";
 
 describe("utilities", () => {
   it("approximateEqual", () => {
@@ -78,5 +83,11 @@ describe("utilities", () => {
     const result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     expect(averageLoss(values, 6, 2)).toEqual(result);
+  });
+
+  it("differenceInPercent", () => {
+    expect(differenceInPercent(1, 2)).toBe(-100);
+    expect(differenceInPercent(2, 1)).toBe(100);
+    expect(differenceInPercent(1, 1)).toBe(0);
   });
 });

@@ -1,12 +1,12 @@
 import { ICandle } from "../../types";
-import { averageGain, averageLoss } from "../../utilities";
+import { averageGain, averageLoss, approximateEqual } from "../../utilities";
 import _ from "lodash";
 
 export default (candles: ICandle[]): boolean => {
   const secondHigh = candles[candles.length - 2].high;
   const thirdHigh = candles[candles.length - 1].high;
 
-  return upwardTrend(candles) && secondHigh === thirdHigh;
+  return upwardTrend(candles) && approximateEqual(secondHigh, thirdHigh);
 };
 
 const upwardTrend = (candles: ICandle[]): boolean => {

@@ -8,7 +8,7 @@ const lodash_1 = __importDefault(require("lodash"));
 exports.default = (candles) => {
     const secondLow = candles[candles.length - 2].low;
     const thirdLow = candles[candles.length - 1].low;
-    return downwardTrend(candles) && secondLow === thirdLow;
+    return downwardTrend(candles) && utilities_1.approximateEqual(secondLow, thirdLow);
 };
 const downwardTrend = (candles) => {
     const closes = candles.map(c => c.close);

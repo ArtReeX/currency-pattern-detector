@@ -74,5 +74,10 @@ describe("utilities", () => {
         const result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         expect(utilities_1.averageLoss(values, 6, 2)).toEqual(result);
     });
+    it("differenceInPercent", () => {
+        expect(utilities_1.differenceInPercent(1, 2)).toBe(-100);
+        expect(utilities_1.differenceInPercent(2, 1)).toBe(100);
+        expect(utilities_1.differenceInPercent(1, 1)).toBe(0);
+    });
 });
 //# sourceMappingURL=utilitiesSpec.js.map
