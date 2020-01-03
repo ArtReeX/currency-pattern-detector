@@ -8,8 +8,8 @@ export default (candles: ICandle[]): boolean => {
   const low = candles[candles.length - 1].low;
 
   const isOpenEqualsClose = approximateEqual(open, close);
-  const isHighEqualsOpen = approximateEqual(open, high);
   const isLowEqualsClose = approximateEqual(close, low);
+  const isEqualSegments = approximateEqual(high - open, close - low);
 
-  return isOpenEqualsClose && isLowEqualsClose && !isHighEqualsOpen;
+  return isOpenEqualsClose && isLowEqualsClose && !isEqualSegments;
 };

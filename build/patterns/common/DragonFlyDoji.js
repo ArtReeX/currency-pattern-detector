@@ -8,7 +8,7 @@ exports.default = (candles) => {
     const low = candles[candles.length - 1].low;
     const isOpenEqualsClose = utilities_1.approximateEqual(open, close);
     const isHighEqualsOpen = utilities_1.approximateEqual(open, high);
-    const isLowEqualsClose = utilities_1.approximateEqual(close, low);
-    return isOpenEqualsClose && isHighEqualsOpen && !isLowEqualsClose;
+    const isEqualSegments = utilities_1.approximateEqual(high - open, close - low);
+    return isOpenEqualsClose && isHighEqualsOpen && !isEqualSegments;
 };
 //# sourceMappingURL=DragonFlyDoji.js.map

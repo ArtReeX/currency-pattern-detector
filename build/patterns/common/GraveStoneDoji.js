@@ -7,8 +7,8 @@ exports.default = (candles) => {
     const high = candles[candles.length - 1].high;
     const low = candles[candles.length - 1].low;
     const isOpenEqualsClose = utilities_1.approximateEqual(open, close);
-    const isHighEqualsOpen = utilities_1.approximateEqual(open, high);
     const isLowEqualsClose = utilities_1.approximateEqual(close, low);
-    return isOpenEqualsClose && isLowEqualsClose && !isHighEqualsOpen;
+    const isEqualSegments = utilities_1.approximateEqual(high - open, close - low);
+    return isOpenEqualsClose && isLowEqualsClose && !isEqualSegments;
 };
 //# sourceMappingURL=GraveStoneDoji.js.map

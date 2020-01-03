@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.approximateEqual = (first, second) => Math.abs(exports.differenceInPercent(first, second)) <= 5;
+exports.approximateEqual = (first, second) => Math.abs(exports.differenceInPercent(first, second)) <= 10;
 exports.averageGain = (values, period, presiction = 64) => {
     const averages = [];
     for (let countPeriod = period; countPeriod < values.length; countPeriod++) {

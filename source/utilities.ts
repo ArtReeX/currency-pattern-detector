@@ -1,5 +1,5 @@
 export const approximateEqual = (first: number, second: number): boolean =>
-  Math.abs(differenceInPercent(first, second)) <= 5;
+  Math.abs(differenceInPercent(first, second)) <= 10;
 
 export const averageGain = (
   values: number[],
