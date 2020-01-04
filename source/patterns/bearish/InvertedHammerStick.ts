@@ -7,5 +7,6 @@ export default (candles: ICandle[]): boolean =>
     bodySizeMinPercents: 5,
     bodySizeMaxPercents: 40,
     bodyPosition: "BOTTOM",
-    attached: true
+    attached: true,
+    trend: "DOWN"
   });

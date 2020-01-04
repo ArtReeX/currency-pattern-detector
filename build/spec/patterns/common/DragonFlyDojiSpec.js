@@ -8,7 +8,7 @@ const DragonFlyDoji_1 = __importDefault(require("../../../patterns/common/Dragon
 describe("DragonFlyDoji (common)", () => {
     it("default", () => {
         const trueInput = [
-            { open: 30.1, high: 30.1, close: 30.13, low: 28.1 }
+            { open: 30.13, high: 30.13, close: 29.9, low: 25.1 }
         ];
         expect(DragonFlyDoji_1.default(trueInput)).toBeTrue();
     });

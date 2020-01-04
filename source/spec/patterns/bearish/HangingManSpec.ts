@@ -2,7 +2,7 @@ import "jasmine";
 import HangingMan from "../../../patterns/bearish/HangingMan";
 import { ICandle } from "../../../types";
 
-describe("HangingMan (bullish)", () => {
+describe("HangingMan (bearish)", () => {
   it("Bearish", () => {
     const input: ICandle[] = [
       { open: 29.5, high: 35.9, close: 33.1, low: 26.9 },

@@ -5,13 +5,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const utilities_1 = require("../../utilities");
 const lodash_1 = __importDefault(require("lodash"));
+const checker_1 = require("../../checker");
 exports.default = (candles) => {
-    const secondHigh = candles[candles.length - 2].high;
-    const secondLow = candles[candles.length - 2].low;
-    const thirdHigh = candles[candles.length - 1].high;
-    const thirdLow = candles[candles.length - 1].low;
+    const second = candles[candles.length - 2];
+    const third = candles[candles.length - 1];
     return (downwardTrend(candles) &&
-        utilities_1.isApproximateEqual(secondLow - thirdLow, Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)));
+        checker_1.is(second, {
+            bodySizeMinPercents: 10,
+            bodySizeMaxPercents: 50,
+            bodyPosition: "TOP",
+            trend: "DOWN"
+        }) &&
+        checker_1.is(third, {
+            bodySizeMinPercents: 10,
+            bodySizeMaxPercents: 50,
+            bodyPosition: "TOP",
+            trend: "UP"
+        }) &&
+        utilities_1.isApproximateEqual(second.close - third.open, Math.max(second.high, third.high) - Math.min(second.low, third.low)));
 };
 const downwardTrend = (candles) => {
     const closes = candles.map(c => c.close);

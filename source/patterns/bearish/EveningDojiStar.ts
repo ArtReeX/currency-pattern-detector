@@ -8,14 +8,7 @@ export default (candles: ICandle[]): boolean => {
 
   const firstMidpoint = (first.open + first.close) / 2;
   const isFirstBullish = first.close > first.open;
-  const dojiExists = Doji([
-    {
-      open: second.open,
-      close: second.close,
-      high: second.high,
-      low: second.low
-    }
-  ]);
+  const dojiExists = Doji([second]);
   const isThirdBearish = third.open > third.close;
   const gapExists =
     second.high > first.high &&

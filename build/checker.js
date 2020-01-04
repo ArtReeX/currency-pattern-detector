@@ -49,8 +49,8 @@ exports.is = ({ open, close, high, low }, conditions) => {
             break;
         }
     }
-    if (conditions.attached && (high !== max || low !== min)) {
-        return true;
+    if (conditions.attached && high !== max && low !== min) {
+        return false;
     }
     switch (conditions.trend) {
         case "UP": {

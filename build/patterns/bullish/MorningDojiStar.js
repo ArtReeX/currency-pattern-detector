@@ -5,31 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Doji_1 = __importDefault(require("../common/Doji"));
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 3].open;
-    const firstClose = candles[candles.length - 3].close;
-    const firstLow = candles[candles.length - 3].low;
-    const secondOpen = candles[candles.length - 2].open;
-    const secondClose = candles[candles.length - 2].close;
-    const secondHigh = candles[candles.length - 2].high;
-    const secondLow = candles[candles.length - 2].low;
-    const thirdOpen = candles[candles.length - 1].open;
-    const thirdClose = candles[candles.length - 1].close;
-    const firstMidpoint = (firstOpen + firstClose) / 2;
-    const isFirstBearish = firstClose < firstOpen;
-    const dojiExists = Doji_1.default([
-        {
-            open: secondOpen,
-            close: secondClose,
-            high: secondHigh,
-            low: secondLow
-        }
-    ]);
-    const isThirdBullish = thirdOpen < thirdClose;
-    const gapExists = secondHigh < firstLow &&
-        secondLow < firstLow &&
-        thirdOpen > secondHigh &&
-        secondClose < thirdOpen;
-    const doesCloseAboveFirstMidpoint = thirdClose > firstMidpoint;
+    const first = candles[candles.length - 3];
+    const second = candles[candles.length - 2];
+    const third = candles[candles.length - 1];
+    const firstMidpoint = (first.open + first.close) / 2;
+    const isFirstBearish = first.close < first.open;
+    const dojiExists = Doji_1.default([second]);
+    const isThirdBullish = third.open < third.close;
+    const gapExists = second.high < first.low &&
+        second.low < first.low &&
+        third.open > second.high &&
+        second.close < third.open;
+    const doesCloseAboveFirstMidpoint = third.close > firstMidpoint;
     return (isFirstBearish &&
         dojiExists &&
         isThirdBullish &&

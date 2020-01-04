@@ -32,7 +32,7 @@ describe("HammerPattern (bullish)", () => {
       { open: 40.9, high: 41.8, close: 36.0, low: 28.0 },
       { open: 36.0, high: 37.6, close: 33.1, low: 27.7 },
       { open: 33.1, high: 35.9, close: 29.5, low: 26.9 },
-      { open: 29.1, high: 30.1, close: 30.1, low: 10.06 },
+      { open: 27.13, high: 30.1, close: 30.1, low: 10.06 },
       { open: 30.1, high: 33.6, close: 32.3, low: 25.9 }
     ];
 

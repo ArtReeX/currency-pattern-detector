@@ -1,16 +1,6 @@
 import { ICandle } from "../../types";
 import { isApproximateEqual } from "../../utilities";
+import { is } from "../../checker";
 
-export default (candles: ICandle[]): boolean => {
-  const open = candles[candles.length - 1].open;
-  const close = candles[candles.length - 1].close;
-  const high = candles[candles.length - 1].high;
-  const low = candles[candles.length - 1].low;
-
-  return (
-    isApproximateEqual(close - high, high - low) &&
-    isApproximateEqual(low - open, high - low) &&
-    open < close &&
-    open < high
-  );
-};
+export default (candles: ICandle[]): boolean =>
+  is(candles[candles.length - 1], { bodySizeMinPercents: 100, trend: "UP" });

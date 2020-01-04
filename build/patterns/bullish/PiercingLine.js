@@ -1,17 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 2].open;
-    const firstClose = candles[candles.length - 2].close;
-    const firstLow = candles[candles.length - 2].low;
-    const secondOpen = candles[candles.length - 1].open;
-    const secondClose = candles[candles.length - 1].close;
-    const secondLow = candles[candles.length - 1].low;
-    const firstMidpoint = (firstOpen + firstClose) / 2;
-    const isDowntrend = secondLow < firstLow;
-    const isFirstBearish = firstClose < firstOpen;
-    const isSecondBullish = secondClose > secondOpen;
-    const isPiercingLinePattern = firstLow > secondOpen && secondClose > firstMidpoint;
+    const first = candles[candles.length - 2];
+    const second = candles[candles.length - 1];
+    const firstMidpoint = (first.open + first.close) / 2;
+    const isDowntrend = second.low < first.low;
+    const isFirstBearish = first.close < first.open;
+    const isSecondBullish = second.close > second.open;
+    const isPiercingLinePattern = first.low > second.open && second.close > firstMidpoint;
     return (isDowntrend && isFirstBearish && isPiercingLinePattern && isSecondBullish);
 };
 //# sourceMappingURL=PiercingLine.js.map

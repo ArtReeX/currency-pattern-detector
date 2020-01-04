@@ -1,18 +1,29 @@
 import { ICandle } from "../../types";
 import { averageGain, averageLoss, isApproximateEqual } from "../../utilities";
 import _ from "lodash";
+import { is } from "../../checker";
 
 export default (candles: ICandle[]): boolean => {
-  const secondHigh = candles[candles.length - 2].high;
-  const secondLow = candles[candles.length - 2].low;
-  const thirdHigh = candles[candles.length - 1].high;
-  const thirdLow = candles[candles.length - 1].low;
+  const second = candles[candles.length - 2];
+  const third = candles[candles.length - 1];
 
   return (
     downwardTrend(candles) &&
+    is(second, {
+      bodySizeMinPercents: 10,
+      bodySizeMaxPercents: 50,
+      bodyPosition: "TOP",
+      trend: "DOWN"
+    }) &&
+    is(third, {
+      bodySizeMinPercents: 10,
+      bodySizeMaxPercents: 50,
+      bodyPosition: "TOP",
+      trend: "UP"
+    }) &&
     isApproximateEqual(
-      secondLow - thirdLow,
-      Math.max(secondHigh, thirdHigh) - Math.min(secondLow, thirdLow)
+      second.close - third.open,
+      Math.max(second.high, third.high) - Math.min(second.low, third.low)
     )
   );
 };

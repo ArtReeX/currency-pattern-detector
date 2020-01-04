@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("jasmine");
 const HangingManUnconfirmed_1 = __importDefault(require("../../../patterns/bearish/HangingManUnconfirmed"));
-describe("HangingManUnconfirmed (bullish)", () => {
+describe("HangingManUnconfirmed (bearish)", () => {
     it("Bearish", () => {
         const input = [
             { open: 28.9, high: 36.1, close: 29.5, low: 27.0 },

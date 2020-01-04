@@ -1,17 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (candles) => {
-    const firstOpen = candles[candles.length - 2].open;
-    const firstClose = candles[candles.length - 2].close;
-    const firstHigh = candles[candles.length - 2].high;
-    const secondOpen = candles[candles.length - 1].open;
-    const secondClose = candles[candles.length - 1].close;
-    const secondHigh = candles[candles.length - 1].high;
-    const secondLow = candles[candles.length - 1].low;
-    return (firstOpen > secondOpen &&
-        firstClose < secondOpen &&
-        firstClose < secondClose &&
-        firstOpen > secondLow &&
-        firstHigh > secondHigh);
+    const first = candles[candles.length - 2];
+    const second = candles[candles.length - 1];
+    return (first.open > second.open &&
+        first.close < second.open &&
+        first.close < second.close &&
+        first.open > second.low &&
+        first.high > second.high);
 };
 //# sourceMappingURL=Harami.js.map

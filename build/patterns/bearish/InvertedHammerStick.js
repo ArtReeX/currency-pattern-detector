@@ -5,6 +5,7 @@ exports.default = (candles) => checker_1.is(candles[candles.length - 1], {
     bodySizeMinPercents: 5,
     bodySizeMaxPercents: 40,
     bodyPosition: "BOTTOM",
-    attached: true
+    attached: true,
+    trend: "DOWN"
 });
 //# sourceMappingURL=InvertedHammerStick.js.map

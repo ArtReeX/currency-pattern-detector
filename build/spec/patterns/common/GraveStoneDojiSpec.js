@@ -8,7 +8,7 @@ const GraveStoneDoji_1 = __importDefault(require("../../../patterns/common/Grave
 describe("GraveStoneDoji (common)", () => {
     it("default", () => {
         const trueInput = [
-            { open: 30.1, high: 36.13, close: 30.13, low: 30.12 }
+            { open: 30.2, high: 36.13, close: 30.12, low: 30.12 }
         ];
         expect(GraveStoneDoji_1.default(trueInput)).toBeTrue();
     });

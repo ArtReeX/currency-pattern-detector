@@ -72,8 +72,8 @@ export const is = (
     }
   }
 
-  if (conditions.attached && (high !== max || low !== min)) {
-    return true;
+  if (conditions.attached && high !== max && low !== min) {
+    return false;
   }
 
   switch (conditions.trend) {

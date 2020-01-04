@@ -1,19 +1,15 @@
 import { ICandle } from "../../types";
 
 export default (candles: ICandle[]): boolean => {
-  const firstOpen = candles[candles.length - 2].open;
-  const firstClose = candles[candles.length - 2].close;
-  const firstLow = candles[candles.length - 2].low;
-  const secondOpen = candles[candles.length - 1].open;
-  const secondClose = candles[candles.length - 1].close;
-  const secondLow = candles[candles.length - 1].low;
+  const first = candles[candles.length - 2];
+  const second = candles[candles.length - 1];
 
-  const firstMidpoint = (firstOpen + firstClose) / 2;
-  const isDowntrend = secondLow < firstLow;
-  const isFirstBearish = firstClose < firstOpen;
-  const isSecondBullish = secondClose > secondOpen;
+  const firstMidpoint = (first.open + first.close) / 2;
+  const isDowntrend = second.low < first.low;
+  const isFirstBearish = first.close < first.open;
+  const isSecondBullish = second.close > second.open;
   const isPiercingLinePattern =
-    firstLow > secondOpen && secondClose > firstMidpoint;
+    first.low > second.open && second.close > firstMidpoint;
 
   return (
     isDowntrend && isFirstBearish && isPiercingLinePattern && isSecondBullish
