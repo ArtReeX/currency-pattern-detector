@@ -16,25 +16,72 @@ export interface IConditions {
   bodyPosition?: BodyPosition;
   attached?: boolean;
   trend?: Trend;
+  bodyInside?: ICandle;
+  bodyOutside?: ICandle;
 }
 
 export const is = (
-  { open, close, high, low }: ICandle,
-  conditions: IConditions
+  candle: ICandle,
+  {
+    bodySizeMinPercents,
+    bodySizeMaxPercents,
+    bodyPosition,
+    attached,
+    trend,
+    bodyInside,
+    bodyOutside
+  }: IConditions
 ): boolean => {
+  if (bodySizeMinPercents && size(candle) < bodySizeMinPercents) {
+    return false;
+  }
+  if (bodySizeMaxPercents && size(candle) > bodySizeMaxPercents) {
+    return false;
+  }
+
+  if (bodyPosition && !isPosition(candle, bodyPosition)) {
+    return false;
+  }
+
+  if (attached && !isAttached(candle)) {
+    return false;
+  }
+
+  if (trend && !isTrend(candle, trend)) {
+    return false;
+  }
+
+  if (bodyInside && !isBodyInside(candle, bodyInside)) {
+    return false;
+  }
+
+  if (bodyOutside && !isBodyOutside(candle, bodyOutside)) {
+    return false;
+  }
+
+  return true;
+};
+
+export const size = ({ open, close, high, low }: ICandle): number =>
+  percentageOf(open - close, high - low);
+
+export const isBodyOutside = (first: ICandle, second: ICandle): boolean =>
+  Math.min(first.open, first.close) < Math.min(second.open, second.close) &&
+  Math.max(first.open, first.close) > Math.max(second.open, second.close);
+
+export const isBodyInside = (first: ICandle, second: ICandle): boolean =>
+  Math.min(first.open, first.close) > Math.min(second.open, second.close) &&
+  Math.max(first.open, first.close) < Math.max(second.open, second.close);
+
+export const isPosition = (
+  { open, close, high, low }: ICandle,
+  position: BodyPosition
+) => {
   const min = Math.min(open, close);
   const max = Math.max(open, close);
-  const fourth = (max + min) / 4;
-  const size = percentageOf(open - close, high - low);
+  const fourth = (high + low) / 4;
 
-  if (conditions.bodySizeMinPercents && size < conditions.bodySizeMinPercents) {
-    return false;
-  }
-  if (conditions.bodySizeMaxPercents && size > conditions.bodySizeMaxPercents) {
-    return false;
-  }
-
-  switch (conditions.bodyPosition) {
+  switch (position) {
     case "TOP": {
       const center = high - fourth;
       if (!(max >= center)) {
@@ -72,11 +119,18 @@ export const is = (
     }
   }
 
-  if (conditions.attached && high !== max && low !== min) {
-    return false;
-  }
+  return true;
+};
 
-  switch (conditions.trend) {
+export const isAttached = ({ open, close, high, low }: ICandle) => {
+  const min = Math.min(open, close);
+  const max = Math.max(open, close);
+
+  return high === max || low === min;
+};
+
+export const isTrend = ({ open, close }: ICandle, trend: Trend): boolean => {
+  switch (trend) {
     case "UP": {
       if (!(close > open)) {
         return false;

@@ -1,5 +1,6 @@
 import { ICandle } from "../../types";
 import Doji from "../common/Doji";
+import { is } from "../../checker";
 
 export default (candles: ICandle[]): boolean => {
   const first = candles[candles.length - 3];
@@ -7,9 +8,9 @@ export default (candles: ICandle[]): boolean => {
   const third = candles[candles.length - 1];
 
   const firstMidpoint = (first.open + first.close) / 2;
-  const isFirstBearish = first.close < first.open;
+  const isFirstBearish = is(first, { trend: "DOWN" });
   const dojiExists = Doji([second]);
-  const isThirdBullish = third.open < third.close;
+  const isThirdBullish = is(third, { trend: "UP" });
   const gapExists =
     second.high < first.low &&
     second.low < first.low &&

@@ -10,14 +10,13 @@ export default (candles: ICandle[]): boolean => {
     is(first, {
       bodySizeMinPercents: 30,
       bodySizeMaxPercents: 90,
-      trend: "DOWN"
+      trend: "DOWN",
+      bodyInside: second
     }) &&
     is(second, {
       bodySizeMinPercents: 30,
       bodySizeMaxPercents: 90,
       trend: "UP"
-    }) &&
-    percentageOf(first.close - first.open, first.high - first.low) >
-      percentageOf(second.close - second.open, second.high - second.low) - 20
+    })
   );
 };
