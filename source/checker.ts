@@ -79,7 +79,7 @@ export const isPosition = (
 ) => {
   const min = Math.min(open, close);
   const max = Math.max(open, close);
-  const fourth = (high + low) / 4;
+  const fourth = (high - low) / 4;
 
   switch (position) {
     case "TOP": {
